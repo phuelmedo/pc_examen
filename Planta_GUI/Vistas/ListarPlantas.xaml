@@ -19,7 +19,7 @@
                     <GridViewColumn x:Name="gvCantidadAgua" Header="Cantidad Agua" Width="90" DisplayMemberBinding="{Binding CantidadAgua}"/>
                     <GridViewColumn x:Name="gvEpoca" Header="Epoca" Width="90" DisplayMemberBinding="{Binding Epoca}"/>
                     <GridViewColumn x:Name="gvEsVenenosa" Header="Es Venenosa" Width="90" DisplayMemberBinding="{Binding EsVenenosa}"/>
-                    <GridViewColumn x:Name="gvEsAutoctona" Header="Es Autoctona" Width="90" DisplayMemberBinding="{Binding EsAutoctona}"/>
+                    <GridViewColumn x:Name="gvEsAuctoctona" Header="Es Autoctona" Width="90" DisplayMemberBinding="{Binding EsAuctoctona}"/>
                     <GridViewColumn Width="100" Header="Eliminar">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

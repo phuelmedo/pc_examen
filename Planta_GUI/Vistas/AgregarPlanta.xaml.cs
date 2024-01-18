@@ -80,6 +80,7 @@ namespace Planta_GUI.Vistas
             txtEpoca.Text = string.Empty;
             chkEsVenenosa.IsChecked = false;
             chkEsAuctoctona.IsChecked = false;
+
         }
     }
 }

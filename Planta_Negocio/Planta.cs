@@ -70,7 +70,18 @@ namespace Planta_Negocio
             get { return _descripcion; }
             set
             {
-                OnPropertyChanged(ref _descripcion, value);
+                if (string.IsNullOrEmpty(value))
+                {
+                    _descripcion = "Sin información.-";
+                }
+                else
+                {
+                    if (_descripcion != value)
+                    {
+                        _descripcion = value;
+                        OnPropertyChanged(nameof(Descripcion));
+                    }
+                }
             }
         }
         public int TiempoRiego
@@ -290,9 +301,10 @@ namespace Planta_Negocio
                 Planta_DALC.vwLogin login = CommonBC.ModelPlanta.vwLogin.First(l => l.Username == username);
 
                 this.Username = login.Username;
-                this.Password = AES_Helper.DecryptString(login.Password);
+                this.Password = password;
+                var pass = AES_Helper.DecryptString(login.Password);
 
-                if (password != Password)
+                if (password != pass)
                 {
                     return false;
                 }
