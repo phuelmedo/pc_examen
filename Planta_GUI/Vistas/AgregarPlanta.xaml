@@ -1,0 +1,40 @@
+﻿<Window x:Class="Planta_GUI.Vistas.AgregarPlanta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Planta_GUI.Vistas"
+        mc:Ignorable="d"
+        Title="AgregarPlanta" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblNombreComun" Content="Nombre Comun" HorizontalAlignment="Left" Margin="73,81,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNombreCientifico" Content="Nombre Cientifico" HorizontalAlignment="Left" Margin="73,112,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTipoPlanta" Content="Tipo Planta" HorizontalAlignment="Left" Margin="73,143,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDescripcion" Content="Descripcion" HorizontalAlignment="Left" Margin="73,174,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTiempoRiego" Content="Tiempo Riego" HorizontalAlignment="Left" Margin="73,205,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCantidadAgua" Content="Cantidad Agua" HorizontalAlignment="Left" Margin="73,236,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEpoca" Content="Epoca" HorizontalAlignment="Left" Margin="73,268,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEsVenenosa" Content="Es Venenosa" HorizontalAlignment="Left" Margin="73,300,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEsAutoctona" Content="EsAutoctona" HorizontalAlignment="Left" Margin="73,332,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombreComun" HorizontalAlignment="Left" Margin="179,85,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="519" Text="{Binding NombreComun, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[NombreComun]}"/>
+        <TextBox x:Name="txtNombreCientifico" HorizontalAlignment="Left" Margin="179,116,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="519" Text="{Binding NombreCientifico, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[NombreCientifico]}"/>
+        <ComboBox x:Name="txtTipoPlanta" HorizontalAlignment="Left" Margin="179,143,0,0" VerticalAlignment="Top" Width="519" Text="{Binding TipoPlanta, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[TipoPlanta]}">
+            <ComboBoxItem Content="Herbácea"/>
+            <ComboBoxItem Content="Matorral"/>
+            <ComboBoxItem Content="Arbusto"/>
+            <ComboBoxItem Content="Árbol"/>
+        </ComboBox>
+        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="179,174,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="519" Text="{Binding Descripcion, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[Descripcion]}"/>
+        <TextBox x:Name="txtTiempoRiego" PreviewTextInput="CheckTextInput" HorizontalAlignment="Left" Margin="179,207,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="519" Text="{Binding TiempoRiego, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[TiempoRiego]}"/>
+        <TextBox x:Name="txtCantidadAgua" PreviewTextInput="CheckTextInput" HorizontalAlignment="Left" Margin="179,238,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="519" Text="{Binding CantidadAgua, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[CantidadAgua]}"/>
+        <ComboBox x:Name="txtEpoca" HorizontalAlignment="Left" Margin="179,270,0,0" VerticalAlignment="Top" Width="519" Text="{Binding Epoca, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ToolTip="{Binding ErrorCollection[Epoca]}">
+            <ComboBoxItem Content="Verano"/>
+            <ComboBoxItem Content="Invierno"/>
+            <ComboBoxItem Content="Otoño"/>
+            <ComboBoxItem Content="Primavera"/>
+        </ComboBox>
+        <CheckBox x:Name="chkEsVenenosa" Content="Si" HorizontalAlignment="Left" Margin="179,305,0,0" VerticalAlignment="Top" IsChecked="{Binding EsVenenosa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <CheckBox x:Name="chkEsAuctoctona" Content="Si" HorizontalAlignment="Left" Margin="179,336,0,0" VerticalAlignment="Top" IsChecked="{Binding EsAuctoctona, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Button x:Name="btnAgregarPlanta" Content="Agregar planta" HorizontalAlignment="Left" Margin="343,380,0,0" VerticalAlignment="Top" Click="Button_Click" IsEnabled="{Binding DatosValidos}"/>
+    </Grid>
+</Window>

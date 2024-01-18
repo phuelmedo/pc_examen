@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="El_SaltoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'El_Salto.dbo.vwLogin' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vwLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'El_Salto.dbo.vwPlanta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="vwPlanta">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="NombreComun" />
+      <PropertyRef Name="NombreCientifico" />
+      <PropertyRef Name="TipoPlanta" />
+      <PropertyRef Name="TiempoRiego" />
+      <PropertyRef Name="CantidadAgua" />
+      <PropertyRef Name="Epoca" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreComun" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="NombreCientifico" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TipoPlanta" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="TiempoRiego" Type="int" Nullable="false" />
+    <Property Name="CantidadAgua" Type="int" Nullable="false" />
+    <Property Name="Epoca" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="EsVenenosa" Type="bit" />
+    <Property Name="EsAutoctona" Type="bit" />
+  </EntityType>
+  <Function Name="spPlantaDeleteById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spPlantaSave" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreComun" Type="varchar" Mode="In" />
+    <Parameter Name="NombreCientifico" Type="varchar" Mode="In" />
+    <Parameter Name="TipoPlanta" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="TiempoRiego" Type="int" Mode="In" />
+    <Parameter Name="CantidadAgua" Type="int" Mode="In" />
+    <Parameter Name="Epoca" Type="varchar" Mode="In" />
+    <Parameter Name="EsVenenosa" Type="bit" Mode="In" />
+    <Parameter Name="EsAutoctona" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="spPlantaUpdateById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="NombreComun" Type="varchar" Mode="In" />
+    <Parameter Name="NombreCientifico" Type="varchar" Mode="In" />
+    <Parameter Name="TipoPlanta" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="TiempoRiego" Type="int" Mode="In" />
+    <Parameter Name="CantidadAgua" Type="int" Mode="In" />
+    <Parameter Name="Epoca" Type="varchar" Mode="In" />
+    <Parameter Name="EsVenenosa" Type="bit" Mode="In" />
+    <Parameter Name="EsAutoctona" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="El_SaltoModelStoreContainer">
+    <EntitySet Name="vwLogin" EntityType="Self.vwLogin" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwLogin].[Id] AS [Id], 
+    [vwLogin].[Username] AS [Username], 
+    [vwLogin].[Password] AS [Password]
+    FROM [dbo].[vwLogin] AS [vwLogin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPlanta" EntityType="Self.vwPlanta" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwPlanta].[Id] AS [Id], 
+    [vwPlanta].[NombreComun] AS [NombreComun], 
+    [vwPlanta].[NombreCientifico] AS [NombreCientifico], 
+    [vwPlanta].[TipoPlanta] AS [TipoPlanta], 
+    [vwPlanta].[Descripcion] AS [Descripcion], 
+    [vwPlanta].[TiempoRiego] AS [TiempoRiego], 
+    [vwPlanta].[CantidadAgua] AS [CantidadAgua], 
+    [vwPlanta].[Epoca] AS [Epoca], 
+    [vwPlanta].[EsVenenosa] AS [EsVenenosa], 
+    [vwPlanta].[EsAutoctona] AS [EsAutoctona]
+    FROM [dbo].[vwPlanta] AS [vwPlanta]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

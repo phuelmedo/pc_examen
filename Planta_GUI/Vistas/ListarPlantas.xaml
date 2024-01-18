@@ -1,0 +1,41 @@
+﻿<Window x:Class="Planta_GUI.Vistas.ListarPlantas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Planta_GUI.Vistas"
+        mc:Ignorable="d"
+        Title="ListarPlantas" Height="450" Width="1300">
+    <Grid>
+        <ListView x:Name="lvPlantas" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="gvId" Header="Id" Width="40" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn x:Name="gvNombreComun" Header="Nombre Comun" Width="150" DisplayMemberBinding="{Binding NombreComun}"/>
+                    <GridViewColumn x:Name="gvNombreCientifico" Header="Nombre Cientifico" Width="150" DisplayMemberBinding="{Binding NombreCientifico}"/>
+                    <GridViewColumn x:Name="gvTipoPlanta" Header="Tipo Planta" Width="120" DisplayMemberBinding="{Binding TipoPlanta}"/>
+                    <GridViewColumn x:Name="gvDescripcion" Header="Descripcion" Width="150" DisplayMemberBinding="{Binding Descripcion}"/>
+                    <GridViewColumn x:Name="gvTiempoRiego" Header="Tiempo Riego" Width="100" DisplayMemberBinding="{Binding TiempoRiego}"/>
+                    <GridViewColumn x:Name="gvCantidadAgua" Header="Cantidad Agua" Width="90" DisplayMemberBinding="{Binding CantidadAgua}"/>
+                    <GridViewColumn x:Name="gvEpoca" Header="Epoca" Width="90" DisplayMemberBinding="{Binding Epoca}"/>
+                    <GridViewColumn x:Name="gvEsVenenosa" Header="Es Venenosa" Width="90" DisplayMemberBinding="{Binding EsVenenosa}"/>
+                    <GridViewColumn x:Name="gvEsAutoctona" Header="Es Autoctona" Width="90" DisplayMemberBinding="{Binding EsAutoctona}"/>
+                    <GridViewColumn Width="100" Header="Eliminar">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btEliminar" Content="Eliminar" Click="EliminarButton_Click"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" Header="Modificar">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btModificar" Content="Modificar" Click="ModificarButton_Click"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
