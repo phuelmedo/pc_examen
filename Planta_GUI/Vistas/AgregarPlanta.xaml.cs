@@ -33,7 +33,6 @@ namespace Planta_GUI.Vistas
         {
             try
             {
-
                 bool response = planta.Create();
 
                 if (response)
@@ -75,7 +74,7 @@ namespace Planta_GUI.Vistas
             txtNombreComun.Text = string.Empty;
             txtNombreCientifico.Text = string.Empty;
             txtTipoPlanta.Text = string.Empty;
-            txtDescripcion.Text = string.Empty;
+            txtDescripcion.Text = " ";
             txtTiempoRiego.Text = string.Empty;
             txtCantidadAgua.Text = string.Empty;
             txtEpoca.Text = string.Empty;

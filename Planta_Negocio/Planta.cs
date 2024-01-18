@@ -70,14 +70,7 @@ namespace Planta_Negocio
             get { return _descripcion; }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    OnPropertyChanged(ref _descripcion, "Sin información.-");
-                }
-                else
-                {
-                    OnPropertyChanged(ref _descripcion, value);
-                }
+                OnPropertyChanged(ref _descripcion, value);
             }
         }
         public int TiempoRiego
@@ -201,6 +194,7 @@ namespace Planta_Negocio
         {
             try
             {
+
                 CommonBC.ModelPlanta.spPlantaSave(
                     AES_Helper.EncryptString(this.NombreComun),
                     AES_Helper.EncryptString(this.NombreCientifico),
